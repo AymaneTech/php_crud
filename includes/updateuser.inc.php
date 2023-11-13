@@ -5,7 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["pwd"];
     $email = $_POST["email"];
 
-    echo "new name is : {$username}";
     try {
         require_once "db.inc.php";
         $query = "UPDATE users SET name = ?, pwd = ?, email = ? WHERE id = 2;";
@@ -16,12 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo = null;
         $stmt = null;
 
-        // header("Location: ../index.php");
+        header("Location: ../success.php");
         die();
     } catch (PDOException $e) {
         die("query failed: " . $e->getMessage());
     }
 } else {
-    echo "hello";
-    // header("Location: ../index.php");
+    header("Location: ../index.php");
 }
