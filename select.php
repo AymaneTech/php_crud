@@ -11,7 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] = "POST") {
         $stmt = $pdo->prepare($query);
         $stmt->execute([$username]);
 
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);;
+      
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $pdo = null;
         $stmt = null;
